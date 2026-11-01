@@ -1,8 +1,20 @@
-
 import streamlit as st
 import torch
 from PIL import Image
-from transformers import (
+from transformers import ...
+
+# Paste Step 2 code here
+import torch
+from transformers import pipeline
+
+@st.cache_resource
+def load_image_checker():
+    return pipeline(
+        "zero-shot-image-classification",
+        model="openai/clip-vit-base-patch32"
+    )
+
+image_checker = load_image_checker()(
     ViTForImageClassification,
     ViTImageProcessor
 )
